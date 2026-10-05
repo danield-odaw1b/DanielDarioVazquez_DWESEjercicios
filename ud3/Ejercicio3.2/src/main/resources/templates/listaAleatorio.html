@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeros Aleatorios</title>
+    <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body>
+    <header>
+        <h1>Listado de números aleatorios</h1>
+    </header>
+    <div th:if="${lista.size() > 0}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="num: ${lista}">
+                    <td th:classappend="${num > 50}? 'mayor' : 'menor'"  th:text="${num}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

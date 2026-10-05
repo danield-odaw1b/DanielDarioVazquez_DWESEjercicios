@@ -1,0 +1,18 @@
+header {
+    font-family: "Comic Sans MS";
+}
+
+th, td {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.mayor {
+    background-color: mistyrose;
+    color: red;
+}
+
+.menor {
+    background-color: greenyellow;
+    color: green;
+}

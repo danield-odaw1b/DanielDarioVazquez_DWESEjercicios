@@ -1,0 +1,42 @@
+body {
+    font-family: "Ink Free";
+    background-color: antiquewhite;
+}
+
+ul {
+    font-family: "Arial Black";
+    color: darkblue;
+}
+
+li {
+    font-family: Consolas;
+    padding: 25px;
+    background-color: bisque;
+    box-shadow: 5px 5px 5px coral;
+}
+
+p {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 12px;
+
+    width: 75%;
+    aspect-ratio: 1 / 1;
+
+    background-color: coral;
+}
+
+.decorado {
+    padding: 50px;
+    max-width: 600px;
+}
+
+.logo {
+    max-width: 50px;
+    padding: 3px;
+}
