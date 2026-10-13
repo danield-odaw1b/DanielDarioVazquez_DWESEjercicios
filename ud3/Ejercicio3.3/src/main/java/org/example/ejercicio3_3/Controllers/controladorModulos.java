@@ -3,8 +3,7 @@ package org.example.ejercicio3_3.Controllers;
 import org.example.ejercicio3_3.Model.Modulo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
