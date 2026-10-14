@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de los libros</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+  <header>
+    <h1 th:text="${libros[id].titulo}"></h1>
+  </header>
+  <main>
+      <table>
+          <tr>
+              <th>AUTOR</th>
+              <th>Nº PÁGINAS</th>
+              <th>ESTADO</th>
+          </tr>
+          <tr>
+              <td th:text="${libros[id].autor}"></td>
+              <td th:text="${libros[id].paginas}"></td>
+              <td th:text="${libros[id].prestado}? 'No disponible':'Disponible'"></td>
+          </tr>
+      </table>
+  </main>
+  <footer>
+      <a th:href="@{/listado}">Volver al listado</a>
+  </footer>
+</body>
+</html>

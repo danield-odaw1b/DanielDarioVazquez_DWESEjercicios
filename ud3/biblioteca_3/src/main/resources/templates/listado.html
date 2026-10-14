@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Volitio</title>
+    <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body>
+    <header>
+        <h1 class="color">BIBLIOTECA VOLITIO: </h1>
+            <form method="get" th:action="@{/listado}">
+                <label>
+                    <select name="prestado">
+                        <option value="">Todos</option>
+                        <option value="true">Prestados</option>
+                        <option value="false">Disponibles</option>
+                    </select>
+                </label>
+                <button type="submit">Filtrar</button>
+            </form>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>TITULO</th>
+                <th>ESTADO</th>
+                <th>ENLACE</th>
+                <th>CAMBIAR ESTADO</th>
+            </tr>
+            <tr th:each="libro : ${biblioteca}">
+                <td th:text="${libro.titulo}"></td>
+                <td th:text="${libro.prestado}? 'No disponible':'Disponible'"></td>
+                <td><a th:href="${libro.id}">Detalles</a></td>
+                <td><button th:action="@{/libros}" th:field="${prestado}" method="post" type="submit">Cambiar</button></td>
+            </tr>
+        </table>
+    </main>
+
+</body>
+</html>
