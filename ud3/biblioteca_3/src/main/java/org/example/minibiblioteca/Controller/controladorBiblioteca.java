@@ -14,9 +14,7 @@ public class controladorBiblioteca {
 
     private List<Libro> lista = new ArrayList<>();
 
-    public controladorBiblioteca(){
-        inicializarBiblioteca();
-    }
+    public controladorBiblioteca(){inicializarBiblioteca();}
 
     @GetMapping("/listado")
     public String mostrarListado (Model model, @RequestParam(required = false) Boolean prestado){
@@ -24,7 +22,7 @@ public class controladorBiblioteca {
         return "listado";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/listado/{id}")
     public String mostrarDetalles (@PathVariable Long id, Model model){
         model.addAttribute("libros",lista);
         return "detalles";
@@ -36,8 +34,8 @@ public class controladorBiblioteca {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping("/{id}/listado")
-    public String cambiarEstado(@PathVariable long id, @ModelAttribute Boolean prestado){
+    @PostMapping("/listado/toggle/{id}")
+    public String cambiarEstado(@PathVariable int id){
         for (int i = 0; i < lista.size(); i++){
             if(lista.get(i).getId() == id){
                 Libro l1 = lista.get(i);

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Módulos</title>
+</head>
+<body>
+<h1>LISTADO DE MÓDULOS</h1>
+<div>
+    <a th:href="@{/modulos}">Todos</a>
+    <a th:href="@{/modulos/{curso}(curso=1)}">Modulos de primero</a>
+    <a th:href="@{/modulos/{curso}(curso=2)}">Modulos de segundo</a>
+</div>
+
+<form method="get" th:action="@{/index}">
+    <label>
+        <select name="curso">
+            <option value="">Todos</option>
+            <option value="1">1º</option>
+            <option value="2">2º</option>
+        </select>
+    </label>
+    <button type="submit">Filtrar</button>
+</form>
+<ul>
+    <li th:each="modulo: ${modulos}" th:text="${modulo.nombre}"></li>
+</ul>
+</body>
+</html>

@@ -2,8 +2,10 @@ header {
     font-family: "Comic Sans MS";
 }
 body {
-    background-color: red;
+    background-color: antiquewhite;
 }
-.color{
-    color: red;
+
+td {
+    border: #1c2121 solid;
+    border-width: 2px;
 }

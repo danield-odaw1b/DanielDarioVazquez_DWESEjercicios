@@ -30,8 +30,12 @@
             <tr th:each="libro : ${biblioteca}">
                 <td th:text="${libro.titulo}"></td>
                 <td th:text="${libro.prestado}? 'No disponible':'Disponible'"></td>
-                <td><a th:href="${libro.id}">Detalles</a></td>
-                <td><button th:action="@{/libros}" th:field="${prestado}" method="post" type="submit">Cambiar</button></td>
+                <td><a th:href="@{/listado/{id}(id=${libro.id})}">Detalles</a></td>
+                <td>
+                    <form th:action="@{/listado/toggle/{id}(id=${libro.id})}" method="post">
+                        <button type="submit">Cambiar</button>
+                    </form>
+                </td>
             </tr>
         </table>
     </main>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Módulos</title>
@@ -7,15 +7,17 @@
 <body>
 <div>
     <a th:href="@{/lista}">Todos</a>
-    <a th:href="@{/lista(curso=1)">Modulos de primero</a>
-    <a th:href="@{/lista(curso=2)">Modulos de segundo</a>
+    <a th:href="@{/lista(curso=1)}">Modulos de primero</a>
+    <a th:href="@{/lista(curso=2)}">Modulos de segundo</a>
 </div>
-<form method="get" th:action="@{lista}">
-    <select>
-        <option value="">Todos</option>
-        <option value="1">Todos</option>
-        <option value="2">Todos</option>
-    </select>
+<form method="get" th:action="@{/lista}">
+    <label>
+        <select name="curso">
+            <option value="">Todos</option>
+            <option value="1">Todos</option>
+            <option value="2">Todos</option>
+        </select>
+    </label>
     <button type="submit">Filtrar</button>
 </form>
 <ul>
