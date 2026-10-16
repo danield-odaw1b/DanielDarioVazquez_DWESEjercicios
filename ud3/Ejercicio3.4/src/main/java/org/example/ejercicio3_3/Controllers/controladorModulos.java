@@ -29,6 +29,18 @@ public class controladorModulos {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/index/{id}")
+    public String mostrarDetalles(@PathVariable Integer id, Model model){
+        for(Modulo m : lista){
+            if(m.getId() == id){
+                Modulo resultado = m;
+                model.addAttribute("modulo", resultado);
+                return "detalles";
+            }
+        }
+        return "noEncontrada";
+    }
+
     private void inicializarModulo(){
         lista.add(new Modulo(1, "Bases de datos",20,1));
         lista.add(new Modulo(2, "Programación",35,1));

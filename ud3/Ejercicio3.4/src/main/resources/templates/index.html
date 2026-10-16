@@ -7,9 +7,9 @@
 <body>
 <h1>LISTADO DE MÓDULOS</h1>
 <div>
-    <a th:href="@{/modulos}">Todos</a>
-    <a th:href="@{/modulos/{curso}(curso=1)}">Modulos de primero</a>
-    <a th:href="@{/modulos/{curso}(curso=2)}">Modulos de segundo</a>
+    <a th:href="@{/index}">Todos</a>
+    <a th:href="@{/index(curso = 1)}">Modulos de primero</a>
+    <a th:href="@{/index(curso = 2)}">Modulos de segundo</a>
 </div>
 
 <form method="get" th:action="@{/index}">
@@ -22,8 +22,9 @@
     </label>
     <button type="submit">Filtrar</button>
 </form>
-<ul>
-    <li th:each="modulo: ${modulos}" th:text="${modulo.nombre}"></li>
+<ul  th:each="modulo: ${modulos}">
+    <li th:text="${modulo.nombre}"></li>
+    <li><a th:href="@{/index/{id}(id=${modulo.id})}">Detalles</a></li>
 </ul>
 </body>
 </html>
