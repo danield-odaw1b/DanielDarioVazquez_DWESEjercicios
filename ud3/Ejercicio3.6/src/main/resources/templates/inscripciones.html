@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado inscripciones</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>LISTADO DE INSCRIPCIONES</h1>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>TÍTULO</th>
+                <th>EMAIL</th>
+                <th>OPCIONES</th>
+            </tr>
+            <tr th:each="ins : ${listado}">
+                <td th:text="${ins.nombre}"></td>
+                <td th:text="${ins.email}"></td>
+                <td>
+                    <a th:href="@{/inscripciones/{id}/editar(id=${ins.id})}">Editar</a>
+                    <form th:action="@{/inscripciones/{id}/eliminar(id=${ins.id})}" method="post">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <a th:href="@{/menu}">Regresar al menú</a>
+    </footer>
+</body>
+</html>

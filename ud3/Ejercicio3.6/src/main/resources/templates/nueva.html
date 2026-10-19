@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva inscripción</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+<header>
+  <h1 th:text="${inscripcion.id == null} ? 'NUEVA INSCRIPCIÓN' : 'EDITAR INSCRIPCIÓN'"></h1>
+</header>
+<main>
+  <form th:action="${inscripcion.id == null} ? @{/inscripciones} : @{/inscripciones/{id}/editar(id=${inscripcion.id})}"
+        method="post">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" th:value="${inscripcion.nombre}" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" th:value="${inscripcion.email}" />
+
+        <label for="turno">Turno</label>
+        <select name="turno" id="turno">
+            <option value="true"  th:selected="${inscripcion.turno == null or inscripcion.turno}">mañana</option>
+            <option value="false" th:selected="${inscripcion.turno != null and !inscripcion.turno}">tarde</option>
+        </select>
+
+        <label for="texto">Comentarios</label>
+        <textarea name="texto" id="texto" th:text="${inscripcion.texto}"></textarea>
+
+        <fieldset class="normas-options">
+            <legend>Normas</legend>
+            <label>
+                <input type="radio" name="normas" value="true"
+                       th:checked="${inscripcion.normas == null or inscripcion.normas}" />
+                Leídas y aceptadas
+            </label>
+            <label>
+                <input type="radio" name="normas" value="false"
+                       th:checked="${inscripcion.normas != null and !inscripcion.normas}" />
+                No leídas o aceptadas
+            </label>
+        </fieldset>
+    </div>
+    <button type="submit">Guardar inscripción</button>
+  </form>
+</main>
+</body>
+</html>
