@@ -11,24 +11,30 @@
 </header>
 <main>
   <form th:action="@{/inscripciones}" method="post">
-    <label>
-        <label>Nombre</label>
-        <input type="text" name="nombre" />
-        <label>Email</label>
-        <input type="email" name="email" />
-        <label>Turno</label>
-        <select name="turno">
+    <div class="form-fields">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+        <label for="turno">Turno</label>
+        <select name="turno" id="turno">
             <option value="true">mañana</option>
             <option value="false">tarde</option>
         </select>
-        <label>Comentarios</label>
-        <input type="text" name="comentarios">Comentarios</input>
-        <label>Normas</label>
-        <select name="normas">
-            <option value="true">leídas y aceptadas</option>
-            <option value="false">no leídas o aceptadas</option>
-        </select>
-    </label>
+        <label for="comentarios">Comentarios</label>
+        <textarea name="comentarios" id="comentarios"></textarea>
+        <fieldset class="normas-options">
+            <legend>Normas</legend>
+            <label>
+                <input type="radio" name="normas" value="true" checked />
+                Leídas y aceptadas
+            </label>
+            <label>
+                <input type="radio" name="normas" value="false" />
+                No leídas o aceptadas
+            </label>
+        </fieldset>
+    </div>
       <button type="submit">Enviar inscripción</button>
   </form>
 </main>

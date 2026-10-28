@@ -55,15 +55,16 @@ form {
   box-shadow: 0 10px 30px rgba(13, 59, 102, 0.15);
 }
 
-/* Label exterior que envuelve todos los campos */
-form > label {
+/* Contenedor de los campos */
+.form-fields {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 /* Etiquetas de cada campo */
-form label label {
+.form-fields > label,
+.normas-options legend {
   margin-top: 10px;
   font-size: 0.85rem;
   font-weight: 600;
@@ -103,6 +104,33 @@ select:focus {
 select {
   cursor: pointer;
   background-color: var(--azul-claro);
+}
+
+.normas-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.normas-options legend {
+  padding: 0;
+}
+
+.normas-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.normas-options input[type="radio"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 /* ===== Botón ===== */
