@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva inscripción</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+<header>
+  <h1>NUEVA INSCRIPCIÓN</h1>
+</header>
+<main>
+  <form th:action="@{/inscripciones}" method="post">
+    <label>
+        <label>Nombre</label>
+        <input type="text" name="nombre" />
+        <label>Email</label>
+        <input type="email" name="email" />
+        <label>Turno</label>
+        <select name="turno">
+            <option value="true">mañana</option>
+            <option value="false">tarde</option>
+        </select>
+        <label>Comentarios</label>
+        <input type="text" name="comentarios">Comentarios</input>
+        <label>Normas</label>
+        <select name="normas">
+            <option value="true">leídas y aceptadas</option>
+            <option value="false">no leídas o aceptadas</option>
+        </select>
+    </label>
+      <button type="submit">Enviar inscripción</button>
+  </form>
+</main>
+</body>
+</html>
