@@ -1,6 +1,7 @@
 package org.example.minibiblioteca.Controller;
 
 import org.example.minibiblioteca.Model.Libro;
+import org.example.minibiblioteca.Repository.Repositorio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-public class controladorBiblioteca {
+public class ControladorBiblioteca {
 
-    private List<Libro> lista = new ArrayList<>();
+    private Repositorio librosRepositorio;
+    private List<Libro> lista = new ArrayList<>(); //QUITAR
 
-    public controladorBiblioteca(){inicializarBiblioteca();}
+    public ControladorBiblioteca(){inicializarBiblioteca();}
 
     @GetMapping("/listado")
     public String mostrarListado (Model model, @RequestParam(required = false) Boolean prestado){
